@@ -1,0 +1,16 @@
+.alert-messages{
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 60%;
+    margin: auto;
+} 
+.alert-error{
+    background-color: rgba(231, 49, 25, 0.753);
+}
+
+.alert-success{
+    background-color: rgba(4, 156, 4, 0.37);
+}

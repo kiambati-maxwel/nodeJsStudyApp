@@ -1,0 +1,36 @@
+
+    <div class="body-bg">
+        <section class="container-form">
+            <section class="global-form">
+                <form action="" class="my-form " action="/users/register" method="POST">
+                   
+                   
+                    <h1>LOGIN</h1>
+                   
+                    <%- include ("./partials/messages") %>
+                    <div class="form-group">
+                        <label id="form-label">Email: </label>
+                        <input id="form-email" type="email" name="email" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="form-label">Password: </label>
+                        <input id="form-password" type="password" name="password" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    
+                
+                    <input class="btn-form" type="submit" value="submit" name="" class="input-form">
+    
+                    <p class="if-account"><span></span><a href="/">BACK</a></span></p>
+                </form>
+        
+        
+            </section>
+        
+        </section>
+        
+        
+        </section>
+        
+    </div>
+   
+

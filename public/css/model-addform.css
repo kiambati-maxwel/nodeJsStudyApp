@@ -1,0 +1,17 @@
+#model-form{
+    position: absolute;
+    border: solid 1px gray;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: aliceblue;
+}
+#model-form label, #model-form input{
+    display: block;
+    padding: 20px;
+    background-color: aliceblue;
+
+}
+
+.add-visibility{
+    visibility: hidden;
+}

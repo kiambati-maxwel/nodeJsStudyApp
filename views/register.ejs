@@ -1,0 +1,45 @@
+
+
+    <div class="body-bg">
+        <section class="container-form">
+            <section class="global-form">
+                <form action="" class="my-form " action="/users/register" method="POST">
+                    <h1>Add User</h1>
+    
+                   
+                    <%- include ("./partials/messages") %>
+                   
+                
+                    <div class="form-group">
+                        <label id="form-label">Name: </label>
+                        <input id="form-name" type="text" name="name" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="form-label">Email: </label>
+                        <input id="form-email" type="email" name="email" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="form-label">Password: </label>
+                        <input id="form-password" type="password" name="password" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="form-label">Confirm Password: </label>
+                        <input id="form-password2" type="password" name="password2" class="input-form" value="<%= typeof name != 'undefined' ? name : ''%>" required>
+                    </div>
+                    
+                    <input class="btn-form" type="submit" value="submit" name="" class="input-form">
+    
+                    <p class="if-account">have an account ?   --  <span></span><a href="/users/login">   login</a></span></p>
+                </form>
+        
+        
+            </section>
+        
+        </section>
+        
+        
+        </section>
+        
+    </div>
+    
+

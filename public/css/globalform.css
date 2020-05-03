@@ -1,0 +1,98 @@
+
+/* ====================body================== */
+.body-bg{
+    border: solid 1px black;
+    color: rgb(0, 24, 34);
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+    background-image: url("../../images/illustration-4701783_1920.png");
+
+}
+/* ====================== typography ================= */
+.form-group,.my-form h1, .btn-form, .input-form, .textarea-form {
+         color: #c5ecfd;
+}
+.input-form{
+    background: transparent; 
+    border: 0;
+    padding: 10px;
+    border-bottom: solid 1px #c5ecfd;
+}
+
+ /* ====================grid=============== */
+
+.container-form{
+    width: 80%;
+    margin: auto;
+
+}
+.global-form{
+    width: 66%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 22px;
+    margin-top: 5em;
+    border-radius: 3%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* ==================button================== */
+.btn-form{
+    padding: 8px 15px 8px 15px;
+    border: black 1px solid;
+    background-color: rgb(124, 124, 253);
+    color: black;
+    letter-spacing: .5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 15px;
+    
+}
+.btn-form:hover{
+    background-color: rgb(124, 124, 253);
+    /* color: blue; */
+    cursor: pointer;
+}
+
+/* ==================form================ */
+
+.my-form{
+    padding: 22px;
+}
+.form-group{
+    padding-bottom: 1em;
+}
+.form-group label{
+    display: block;
+}
+.my-form input[type="text"],
+.my-form input[type="email"],
+.my-form textarea{
+    padding: 0.5m;
+    width: 100%;
+}
+
+ 
+/* =============== error ============= */
+.error{
+    background-color: rgba(187, 101, 101, 0.719);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.if-account{
+    padding-top: 20px;
+    color: white;
+}
+
+.if-account a{
+    color: green;
+    text-decoration: none;
+}
+/* =================responsive========= */
+@media(max-width: 800px){
+     .grid-child{
+         width: 100%;
+     }
+}

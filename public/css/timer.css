@@ -1,0 +1,36 @@
+.play-pause{
+  text-align: center;
+  padding-left: 23%;
+}
+.play-pause
+    label {
+      display: block;
+      box-sizing: border-box;
+      
+      width: 0;
+      height: 33px;
+      
+      cursor: pointer;
+  
+      border-color: transparent transparent transparent #92B4E6;
+      transition: 100ms all ease;
+      will-change: border-width;
+
+      border-radius: 10%;
+      
+      /* // paused state */
+      border-style: double;
+      border-width: 0px 0 0px 20px;
+
+    }
+
+    .play-pause input[type='checkbox'] {
+        visibility: hidden;
+    }
+
+     
+    .play-pause input:checked + label {
+        /* // play state */
+        border-style: solid;
+        border-width: 20px 0 20px 33px;
+      }
