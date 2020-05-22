@@ -12,24 +12,10 @@
 
 <div class="container-dashboard group">
 
-}
-
-    <section class="ln-models ">
-        <form action="/lnmodels/addmdl" method="POST" id="model-form" class="">
-            <label for="model-name" >name</label>
-
-            <input type="text" name="name" placeholder="enter name" id="modelnameinput">
-
-            <label for="model-bgcolor">bg color</label>
-
-            <input type="text" name="bgColor" placeholder="choose color" id="bgcolorinput">
-            
-            <input type="submit" value="submit">
-        
-        </form>
-
-        <!-- <h1 class="model model-1"> <a href="">node js</a></h1> -->
-        <!-- <h1 class="model model-2"><a href="" >SW engineering</a> </h1>
+    <section class="ln-models" id="lnmodels">
+     
+        <!-- <h1 class="model model-1"> <a href="">node js</a></h1>
+        <h1 class="model model-2"><a href="" >SW engineering</a> </h1>
         <h1 class="model model-3"> <a href="">angular</a> </h1>
         <h1 class="model model-4"><a href="">python</a></h1>
         <h1 class="model model-5"><a href="">javascript</a></h1>
@@ -44,6 +30,21 @@
         <h1 class="model model-4"><a href="">python</a></h1>
         <h1 class="model model-5"><a href="">javascript</a></h1> -->
 
+        <!-- form -->
+
+        <form action="/lnmodels/addmdl" method="POST" id="model-form" class="add-visibility">
+            <label for="model-name" >name</label>
+
+            <input type="text" name="name" placeholder="enter name" id="modelnameinput">
+
+            <label for="model-bgcolor">bg color</label>
+
+            <input type="text" name="bgColor" placeholder="choose color" id="bgcolorinput">
+            
+            <input type="submit" value="submit">
+        
+        </form>
+
     </section>
     <section class="stats-sec">
         <div class="stats">
@@ -51,7 +52,7 @@
 
         </div>
         <figure class="add">
-            <a href="" id="add-mdl">+</a>
+            <a href="" id="add-mdl" class="addmdl" >+</a>
             <p>add learning model</p>
         </figure>
 

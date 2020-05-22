@@ -1,12 +1,12 @@
 // DOM
+// const subModuleName = require('./lender_dashboard');
 const timeDisplay = document.querySelector('#time-display');
 const playPauseCheckbox = document.querySelector('#playPauseCheckbox');
 const resetbtn = document.querySelector('#resetbtn');
 const savebtn = document.querySelector('#savetimebtn');
-
+const moduleLender = document.querySelector('#moduleLender');
 
 // variables to hold time
-const totalTime = [];
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
@@ -64,12 +64,37 @@ function stopWatch(){
 // total time 
 
 function totalTimeSpent(){
-    totalTime.push(Math.floor(hours*60+minutes+seconds/60));
-    totalTime.forEach(el => {
-        console.log(el);
-    });
+    // let totalTime = (Math.floor(hours*60+minutes+seconds/60));
+    let totalTime = hours*60+minutes+seconds/60;
+    console.log(totalTime);
+    if(subModuleName === null){
+        prompt('select submodule');
+    }else{
+        const send = {
+            name: subModuleName,
+            mainModelName: moduleLender.innerText,
+            time: totalTime
+        }
+        console.log(send);
+       saveTime(send).then(()=>{
+           console.log(totalTime);
+           console.log('saved');
+       });
+
+    }
+   
     reset();
 };
+
+
+// --------- post request -----
+
+async function saveTime(tTime) {
+    await $.post('http://0.0.0.0:4000/timebox/saveme', tTime);
+};
+
+// --------------- start pose ----
+
 
 function startStop(){
     if(status === 'stopped'){

@@ -1,17 +1,35 @@
-#model-form{
+#submodel-form,
+#model-form {
     position: absolute;
     border: solid 1px gray;
     border-radius: 20px;
     padding: 10px;
     background-color: aliceblue;
+    position: absolute;
+    top: 10%;
 }
-#model-form label, #model-form input{
+
+#submodel-form label,
+#model-form label,
+#submodel-form input,
+#model-form input {
     display: block;
     padding: 20px;
     background-color: aliceblue;
 
 }
 
-.add-visibility{
+.add-visibility {
     visibility: hidden;
 }
+#subadd-mdl{
+    cursor: pointer;
+}
+#submodel-main-m-nput, #submodel-main-m-nput-label{
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+

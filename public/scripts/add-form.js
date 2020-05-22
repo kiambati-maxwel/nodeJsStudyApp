@@ -1,14 +1,8 @@
+
 // dom
-const id = null;
 const addmdlbtn = document.querySelector('#add-mdl');
 const addmdlform = document.querySelector("#model-form");
-const modelNameInput = document.querySelector("#modelnameinput");
-const bgColorInput = document.querySelector("#bgcolorinput");
-const lnmodels = document.querySelector(".ln-models");
-const models = document.querySelectorAll('.model');
-const idIdentifire = models.length + 1;
-console.log();
-
+// const name = document.querySelector("input[name = 'name']");
 
 addmdlbtn.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -19,11 +13,10 @@ addmdlbtn.addEventListener('click', (e)=>{
     };    
 });
 
-// addmdlform.addEventListener('submit', (e)=>{
-//     e.preventDefault();
-//     let node = document.createElement('h1');
-//     node.innerHTML = modelNameInput.value;Erro
-//     node.classList.add('model', `model-${idIdentifire}`);
-//     lnmodels.prepend(node);
+
+// name.addEventListener('keypress', e =>{
+//     if (e.keyCode === 32 || e.which === 32){
+
+//     }
 // });
 

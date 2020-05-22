@@ -11,7 +11,7 @@ const LnmodelsSchema = new Schema({
     },
     bgColor: {
         type: String,
-        required: true
+        default: "neonGreen"
     },
     date: {
         type: Date,

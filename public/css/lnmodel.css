@@ -153,10 +153,12 @@
   text-decoration: none;
   transition-duration: .5s;
   padding: 5% 25px 5% 0;
+  
   /* border: solid 1px black; */
 
 }
 .model a:hover{
+  cursor: pointer;
   font-size: 22px;
 }
 
@@ -187,23 +189,27 @@
 }
 
 .model.is-visible:first-child {
-  margin-left: 0;
+  margin-left: 5%;
+  background-color: rgba(90, 1, 1, 0.575);
 }
 
 .model.is-visible:nth-child(2) {
   margin-left: 13%;
+  background-color: gold;
 }
 
-.model.is-visible:nth-child(3) {
+.model.is-visible:nth-child(3n) {
   margin-left: 26%;
+  background-color:  orangered;
 }
 
 .model.is-visible:nth-child(4) {
   margin-left: 13%;
+  background-color: darkorchid;
 }
 
 .model.is-visible:nth-child(5) {
-  margin-left: 0;
+  margin-left: 10%;
   background-color: rgb(84, 84, 231);
 }
 

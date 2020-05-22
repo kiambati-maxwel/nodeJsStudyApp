@@ -1,7 +1,7 @@
 <header class="group header-dashboard">
     <div class="container-header submodule-header">
         <h1 class="logo-dashboard"><a href="/dashboard">studybot</a> </h1>
-        <h2 class="module">node js</h2>
+        <h2 class="module" id="moduleLender" style="font-size: 40px;"><%= lenderMname %></h2>
         <a href="">settings</a>
         <a href="/users/logout" class="logout">logout</a>
 
@@ -10,32 +10,35 @@
 </header>
 <div class="container-dashboard group container-submodule">
 
-    <section class="ln-models sub-modules">
+    <section class="ln-models sub-modules " id="submodels">
 
-        <h1 class="model model-1"> <a href="">node js</a></h1>
-        <h1 class="model model-2"><a href="" >SW engineering</a> </h1>
-        <h1 class="model model-3"> <a href="">angular</a> </h1>
-        <h1 class="model model-4"><a href="">python</a></h1>
-        <h1 class="model model-5"><a href="">javascript</a></h1>
-        <h1 class="model model-1"> <a href="">node js</a></h1>
-        <h1 class="model model-2"><a href="" >SW engineering</a> </h1>
-        <h1 class="model model-3"> <a href="">angular</a> </h1>
-        <h1 class="model model-4"><a href="">python</a></h1>
-        <h1 class="model model-5"><a href="">javascript</a></h1>
-        <h1 class="model model-1"> <a href="">node js</a></h1>
-        <h1 class="model model-2"><a href="" >SW engineering</a> </h1>
-        <h1 class="model model-3"> <a href="">angular</a> </h1>
-        <h1 class="model model-4"><a href="">python</a></h1>
-        <h1 class="model model-5"><a href="">javascript</a></h1>
+        <form action="/submodels/addmdl" method="POST" id="submodel-form" class="add-visibility">
+            <label for="mainMname" id="submodel-main-m-nput-label" >main model</label>
+            
+            <input type="text" name="mainMname" placeholder="enter main model name" id="submodel-main-m-nput">
+
+            <label for="name" >name</label>
+            <input type="text" name="name" placeholder="enter name" id="submodelnameinput">
+
+            <label for="bgColor">bg color</label>
+
+            <input type="text" name="bgColor" placeholder="choose color" id="subbgcolorinput">
+            
+            <input type="submit" value="submit">
+        
+        </form>
 
     </section>
-    <figure class="add add-submodule">
-        <a href="" class="add-mdl">+</a>
+
+    <figure class="add-submodule add ">
+        <button id="subadd-mdl"  onclick="addFormVis()" class="addmdl" >+</button>
         <p>add sub topic</p>
     </figure>
-    <section class="stats-sec sub-stats-sec">
-        <div class="stats sub-timer">
 
+    <!-- --------------- time metrics ----- -->
+    <section class="stats-sec sub-stats-sec">
+        <p id="subModelNameTimer"></p>
+        <div class="stats sub-timer">
             <h1 class="timer" id="time-display">00 : 00 : 00</h1>
 
             <div class="play-pause">
@@ -63,7 +66,24 @@
 
     </figure>
     <div class="info-interprated">
+        <p id="totalTimeSpen">5hr 13 mins</p>
+        <ul id="totalTanlysed">
 
+        </ul>
+        <section class="today" id="now">
+            <h3 class = "tTimeToday"> today: ?</h3>
+                <ul id="timeAnalysed">
+                   
+                </ul>
+                
+        </section>
+        <section class="today" id="yesterday">
+            <h3 class = "tTimeToday"> </h3>
+                <ul>
+                   
+                </ul>
+                
+        </section>
     </div>
 
  </section>

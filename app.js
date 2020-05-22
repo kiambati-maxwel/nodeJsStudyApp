@@ -6,6 +6,17 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport')
 
+
+//------ Enable CORS
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
+
+
 // passportconfig
 require('./config/passport')(passport);
 
@@ -67,12 +78,13 @@ app.use((req, res, next) => {
     next();
 })
 
+const PORT = process.env.PORT || 4000 || '0.0.0.0' ;
+app.listen(PORT, console.log('silicon badger started ...'));
+
 // routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/lnmodels', require('./routes/lnmodels'));
-app.use('/test', require('./models/testModel'));
-
-const PORT = process.env.PORT || 4000 || '0.0.0.0' ;
-app.listen(PORT, console.log('silicon badger started ...'));
-
+app.use('/submodels', require('./routes/submodels'));
+app.use('/timebox', require('./routes/timebox'));
+app.use('/pluralSite', require('./routes/pluralSite'));

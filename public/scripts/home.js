@@ -8,11 +8,27 @@ const hello = document.querySelector('#hello');
 let dateToday;
 function showTime(){
   let today = new Date(),
-      hour = today.getHours(),  
-      min = today.getMinutes(),
-      sec = today.getSeconds();
-  dateToday = `${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`;
+      todayd = today.dateNow(),
+      hour = todayd.getHours(),  
+      min = todayd.getMinutes(),
+      sec = todayd.getSeconds();
+  dateToday = `${todayd.getDate()}/${todayd.getMonth()}/${todayd.getFullYear()}`;
+  info.filter(info => {
+    return info.name === e.name;
+  }).map(sbn => {
+    return sbn.time
+  }).forEach(e => {
 
+    tt += e;
+
+  });
+  subTopic.push(e.name);
+  subTopicTime.push({
+    name: e.name,
+    time: tt
+  });
+  tt = null;
+}
   // --- set am or pm 
   const amPm = hour >= 12 ? 'PM' : 'AM';
 

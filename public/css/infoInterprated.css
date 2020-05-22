@@ -1,0 +1,28 @@
+.info-interprated{
+    border: solid 1px black;
+    height: 300px;
+    width: 40%;
+    border-radius: 20px;
+    float: right;
+    padding: 20px;
+}
+.info-interprated .today h3{
+    padding-bottom: 20px;
+    font-weight: 600;
+} 
+.info-interprated ul li{
+    padding-bottom: 15px;
+    margin-left: 10%;
+}
+.info-interprated ul li span{
+    font-weight: 100;
+}
+
+.info-interprated #totalTanlysed{
+    padding: 10px;
+    font-weight: 400;
+}
+.info-interprated{
+    overflow: auto;
+
+}
