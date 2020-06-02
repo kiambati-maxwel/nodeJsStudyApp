@@ -1,3 +1,5 @@
+// globalVariable
+let subModuleName = null;
 window.addEventListener('load', init);
 
 // DOM
@@ -12,13 +14,14 @@ const subModelNameTimer = document.querySelector('#subModelNameTimer');
 const tTimeToday = document.querySelector('.tTimeToday');
 const totalTimeSpen = document.querySelector('#totalTimeSpen');
 const totalTanlysed = document.querySelector('#totalTanlysed');
+const myChart = document.querySelector('#myChart').getContext('2d');
 // console.log(submod.id);
+
 
 
 // --- get request message function
 
-// globalVariable
-let subModuleName = null;
+
 
 function init() {
 
@@ -29,13 +32,17 @@ function init() {
 
       lender.forEach(e => {
 
+        // scroll animation based call back function
+
         const callback = function (entries) {
           entries.forEach(entry => {
             entry.target.classList.toggle("is-visible");
           });
         };
 
-
+        // intersection observer to animate alternative for 
+        // listening to scroll events
+        
         const observer = new IntersectionObserver(callback);
 
         let model = document.createElement('h1');
@@ -54,6 +61,9 @@ function init() {
       });
 
     });
+
+  
+
   } else if (submod.id === 'submodels') {
     // console.log(submod.id);
     // console.log(mainModelNamevalue);
@@ -76,7 +86,7 @@ function init() {
         model.addEventListener('click', () => {
           const modelResize = document.querySelectorAll('.model');
           subModuleName = model.innerText;
-          // console.log(model.id);
+          console.log(model.id);
           modelResize.forEach(e => {
             if (e.id !== model.id) {
               // console.log(e);
@@ -137,10 +147,10 @@ function init() {
 
 
             if ( subTopicTime.length < 1  || subTopic.includes(e.name) !== true) {
-              info.filter(info => {
+              info.filter(info => {  /* filter subtopic name in info get request data */
                 return info.name === e.name;
               }).map(sbn => {
-                return sbn.time
+                return sbn.time /* map time into an array */
               }).forEach(e => {
 
                 tt += e;
@@ -192,3 +202,37 @@ function addFormVis() {
   };
 }
 // module.exports =subModuleName;
+
+  // --- time graph
+
+  // function lenderTimegraph (){
+  //   $.get(`http://localhost:4000/timebox`, async totalMdlTime =>{
+  //     console.log(totalMdlTime);
+  //     let dateNow = new Date();
+  //     console.log(dateNow);
+  //     let daya = dateNow.setDate(dateNow.getDate() - 1),
+  //         dayb = dateNow.setDate(dateNow.getDate() - 2),
+  //         dayc = dateNow.setDate(dateNow.getDate() - 3),
+  //         dayd = dateNow.setDate(dateNow.getDate() - 4),
+  //         daye = dateNow.setDate(dateNow.getDate() - 5),
+  //         dayf =  dateNow.setDate(dateNow.getDate() - 6),
+  //         dayg = dateNow.setDate(dateNow.getDate() - 7);
+  //         console.log(dayc.getDate);
+
+  //     let lineChart = new  chart(myChart, {
+  //       type: 'line',
+  //       data:{
+  //         labels:[],
+  //         datasets:[{
+  //           label:'',
+  //           data:[
+              
+  //           ]
+  //         }]
+  //       }
+  //    });
+
+  //   } );
+  // }
+  // lenderTimegraph()
+

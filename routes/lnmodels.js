@@ -1,3 +1,6 @@
+// ln model API end point
+'use strict'
+
 const express = require('express');
 const router = express.Router();
 const Lnmodel = require('../models/Lnmodels');
@@ -61,42 +64,42 @@ router.post('/addmdl', async (req, res, next) => {
 
 // --  hold data and create new files containing models and schemas-----------------------------------------------------------------------
  let newFreakingM = `
- const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+//  const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const lnSchema = new Schema({
-    id: {
-        type: Number,
-        default : 444
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    mainModelName: {
-      type: String,
-    },
-    time: {
-        type: Number,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now
-    }
-});
+// const lnSchema = new Schema({
+//     id: {
+//         type: Number,
+//         default : 444
+//     },
+//     name: {
+//         type: String,
+//         required: true
+//     },
+//     mainModelName: {
+//       type: String,
+//     },
+//     time: {
+//         type: Number,
+//         required: true
+//     },
+//     date: {
+//         type: Date,
+//         default: Date.now
+//     }
+// });
 
-const ${decodeURI(name).replace(/ +/g, "")}Model = mongoose.model('${decodeURI(name).replace(/ +/g, "")}', lnSchema);
+// const ${decodeURI(name).replace(/ +/g, "")}Model = mongoose.model('${decodeURI(name).replace(/ +/g, "")}', lnSchema);
 
 
-module.exports = ${decodeURI(name).replace(/ +/g, "")}Model;`
+// module.exports = ${decodeURI(name).replace(/ +/g, "")}Model;`
 
 // ------------- write routes
 
 const newRoute = `
 const express = require('express');
 const router = express.Router();
-const submodel = require('../models/${name}');
+//const submodel = require('../models/${name}');
 
 
 // -------------------------------- GET request ------------------
@@ -118,28 +121,41 @@ const includePath = `app.use('/${name}', require('./routes/${name}'));`;
 // ----------------------------------------------------------------------------------------------------------
 
 
-  await fs.appendFile(`./models/${name}.js`, newFreakingM, function (err) {
-    if (err) throw err;
-    console.log('Updated models!');
+  // await fs.appendFile(`./models/${name}.js`, newFreakingM, function (err) {
+  //   if (err) throw err;
+  //   console.log('Updated models!');
    
-  }); 
+  // }); 
 
-  await fs.appendFile(`./routes/${name}.js`, newRoute, function (err) {
-    if (err) throw err;
-    console.log('Updated routes! ');
+  // await fs.appendFile(`./routes/${name}.js`, newRoute, function (err) {
+  //   if (err) throw err;
+  //   console.log('Updated routes! ');
    
-  }); 
+  // }); 
 
-  await fs.appendFile(`app.js`, includePath, function (err) {
-    if (err) throw err;
-    console.log('Updated app! ');
+  // await fs.appendFile(`app.js`, includePath, function (err) {
+  //   if (err) throw err;
+  //   console.log('Updated app! ');
    
-  }); 
+  // }); 
 
   });
 
 
 });
 
+router.delete('/delete/:name', async (req, res) => {
+  // destructure
+  console.log(req.params.name);
+  const nameToDelete = encodeURI(req.params.name);
+  await Lnmodel.deleteOne({name: nameToDelete}, err => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log('deleted !');
+    }
+  });
+  res.sendStatus(200);
+});
 
 module.exports = router;

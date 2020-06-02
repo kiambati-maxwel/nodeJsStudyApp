@@ -86,5 +86,4 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/lnmodels', require('./routes/lnmodels'));
 app.use('/submodels', require('./routes/submodels'));
-app.use('/timebox', require('./routes/timebox'));
-app.use('/pluralSite', require('./routes/pluralSite'));
+app.use('/timebox', require('./routes/timebox'))

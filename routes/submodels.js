@@ -107,5 +107,16 @@ router.post('/addmdl', async (req, res, next) => {
 
 });
 
+router.delete('/del/:name', async (req, res) => {
+  // destructure
+  await submodel.deleteOne({name: req.params.name}, err => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log('deleted !');
+    }
+  });
+  res.sendStatus(200);
+});
 
 module.exports = router;
