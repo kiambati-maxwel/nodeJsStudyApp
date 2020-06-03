@@ -1,6 +1,6 @@
 <header class="group header-dashboard">
     <div class="container-header">
-        <h1 class="logo-dashboard"><a href="/submodels">studybot</a> </h1>
+        <h1 class="logo-dashboard"><a href="/timebox/sts">studybot</a> </h1>
 
         <a href="">settings</a>
         <a href="/users/logout" class="logout">logout</a>
@@ -41,3 +41,24 @@
         </figure>
     </section>
 </div>
+
+<div id="modelStats" class="add-visibility">
+    <h3>total time today : <span><%= Math.trunc(totalTimeToday/60) %> hr <%= Math.round((totalTimeToday%60)*100)/100  %> min </span></h3>
+    <ul>
+        <% modelTimeT.forEach(e => { %>
+
+            <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr <%= Math.round((e.time%60)*100)/100  %> min</span></li>
+
+       <% }); %>
+    </ul>
+    <h3>total time : <span><%= Math.trunc(totalTime/60) %> hr <%= Math.round((totalTime%60)*100)/100  %> min </span></h3>
+    <ul>
+        <% modelTime.forEach(e => { %>
+
+            <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr <%= Math.round((e.time%60)*100)/100  %> min</span></li>
+
+       <% }); %>
+    </ul>
+</div>
+
+<button id="mdl-stats" class="">stats</a></button>

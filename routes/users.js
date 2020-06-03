@@ -101,7 +101,7 @@ router.post('/register', (req, res) =>{
 // login
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/dashboard',
+        successRedirect: '/timebox/sts',
         failureRedirect: 'login',
         failureFlash: true
     })(req, res, next);

@@ -20,7 +20,7 @@
 }
 
 .add-visibility {
-    visibility: hidden;
+    display: none;
 }
 #subadd-mdl{
     cursor: pointer;
@@ -31,5 +31,45 @@
     height: 0;
     padding: 0;
     margin: 0;
+}
+
+#modelStats{
+    position: absolute;
+    right: 10%;
+    top: 24%;
+    padding: 20px;
+    border: solid 1px black;
+    text-align: unset;
+    border-radius: 10px;
+    background-color: aliceblue;
+    font-size: 22px;
+    overflow: auto;
+    height: 350px;
+    width: 550px;
+}
+#modelStats h3{
+    margin-bottom: 10px;
+}
+#modelStats ul{
+    margin-left: 25px;
+}
+#modelStats ul li{
+    margin-bottom: 10px;
+}
+#modelStats ul li span{
+    color: maroon;
+    font-size: 24px;
+}
+#mdl-stats{
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #68D23D;
+    width: 150px;
+    padding: 5px;
+    font-size: 22px;
+    position: absolute;
+    right: 26%;
+    top: 85%;
 }
 

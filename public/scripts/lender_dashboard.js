@@ -62,7 +62,6 @@ function init() {
 
     });
 
-  
 
   } else if (submod.id === 'submodels') {
     // console.log(submod.id);
@@ -201,38 +200,5 @@ function addFormVis() {
     submodelform.classList.add('add-visibility');
   };
 }
-// module.exports =subModuleName;
 
-  // --- time graph
-
-  // function lenderTimegraph (){
-  //   $.get(`http://localhost:4000/timebox`, async totalMdlTime =>{
-  //     console.log(totalMdlTime);
-  //     let dateNow = new Date();
-  //     console.log(dateNow);
-  //     let daya = dateNow.setDate(dateNow.getDate() - 1),
-  //         dayb = dateNow.setDate(dateNow.getDate() - 2),
-  //         dayc = dateNow.setDate(dateNow.getDate() - 3),
-  //         dayd = dateNow.setDate(dateNow.getDate() - 4),
-  //         daye = dateNow.setDate(dateNow.getDate() - 5),
-  //         dayf =  dateNow.setDate(dateNow.getDate() - 6),
-  //         dayg = dateNow.setDate(dateNow.getDate() - 7);
-  //         console.log(dayc.getDate);
-
-  //     let lineChart = new  chart(myChart, {
-  //       type: 'line',
-  //       data:{
-  //         labels:[],
-  //         datasets:[{
-  //           label:'',
-  //           data:[
-              
-  //           ]
-  //         }]
-  //       }
-  //    });
-
-  //   } );
-  // }
-  // lenderTimegraph()
-
+// model time function
