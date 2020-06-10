@@ -3,6 +3,10 @@ let subModuleName = null;
 window.addEventListener('load', init);
 
 // DOM
+const addmdlbtn = document.querySelector('#add-mdl');
+const addmdlform = document.querySelector("#model-form");
+const mdlstats = document.querySelector("#mdl-stats");
+const model_Stats = document.querySelector("#modelStats");
 const subaddmdl = document.querySelector('#subadd-mdl');
 const submodelform = document.querySelector('#submodel-form');
 const submod = document.querySelector('.ln-models');
@@ -14,7 +18,6 @@ const subModelNameTimer = document.querySelector('#subModelNameTimer');
 const tTimeToday = document.querySelector('.tTimeToday');
 const totalTimeSpen = document.querySelector('#totalTimeSpen');
 const totalTanlysed = document.querySelector('#totalTanlysed');
-const myChart = document.querySelector('#myChart').getContext('2d');
 // console.log(submod.id);
 
 
@@ -61,6 +64,27 @@ function init() {
       });
 
     });
+
+
+// /-------------
+addmdlbtn.addEventListener('click', (e)=>{
+  e.preventDefault();
+  if(addmdlform.className === 'add-visibility'){
+      addmdlform.classList.remove('add-visibility');
+  }else{
+      addmdlform.classList.add('add-visibility');
+  };    
+});
+
+
+mdlstats.addEventListener('click', () => {
+  if(model_Stats.className === 'add-visibility'){
+      model_Stats.classList.remove('add-visibility');
+  }else{
+      model_Stats.classList.add('add-visibility');
+  }
+});
+
 
 
   } else if (submod.id === 'submodels') {

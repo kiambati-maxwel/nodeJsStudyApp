@@ -33,43 +33,65 @@
     margin: 0;
 }
 
-#modelStats{
+.info-interprated, #modelStats{
     position: absolute;
     right: 10%;
     top: 24%;
     padding: 20px;
-    border: solid 1px black;
     text-align: unset;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: rgba(168, 214, 255, 0.835);
     font-size: 22px;
     overflow: auto;
     height: 350px;
     width: 550px;
 }
-#modelStats h3{
+.info-interprated, #modelStats h3{
     margin-bottom: 10px;
 }
-#modelStats ul{
+.info-interprated, #modelStats ul{
     margin-left: 25px;
 }
-#modelStats ul li{
+.info-interprated, #modelStats ul li{
     margin-bottom: 10px;
 }
-#modelStats ul li span{
+.info-interprated, #modelStats ul li span{
     color: maroon;
     font-size: 24px;
 }
-#mdl-stats{
+#sub-stats, #mdl-stats{
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    background-color: #68D23D;
+    background-color: rgb(59, 25, 43);
     width: 150px;
     padding: 5px;
     font-size: 22px;
     position: absolute;
     right: 26%;
-    top: 85%;
+    top: 80%;
+    color: white;
+}
+#sub-stats:hover, #mdl-stats:hover{
+  background-color: #853D61;
 }
 
+#sub-stats{
+ right: 24.5%;   
+}
+.info-interprated{
+    color: black;
+
+}
+.info-interprated h3{
+    font-weight: 300;
+
+}
+.info-interprated ul li{
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+.info-interprated p{
+    margin-bottom: 15px;
+    font-size: 33px;
+}

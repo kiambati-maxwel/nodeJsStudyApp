@@ -7,58 +7,116 @@
 
     </div>
 
+    <!-- <div class="dropdown">
+
+    </div> -->
+
 </header>
 
 <div class="container-dashboard group">
 
     <section class="ln-models" id="lnmodels">
-     
-        
+
+
         <!-- form -->
 
         <form action="/lnmodels/addmdl" method="POST" id="model-form" class="add-visibility">
-            <label for="model-name" >name</label>
+            <label for="model-name">name</label>
 
             <input type="text" name="name" placeholder="enter name" id="modelnameinput">
 
             <label for="model-bgcolor">bg color</label>
 
             <input type="text" name="bgColor" placeholder="choose color" id="bgcolorinput">
-            
+
             <input type="submit" value="submit">
-        
+
         </form>
 
     </section>
     <section class="stats-sec">
-        <div class="stats">
-           <canvas id="myChart"></canvas>
 
+        <!-- canvas -->
+
+        <div class="stats" style="height: 400px; width: 500px;">
+            <canvas id="myChart"></canvas>
         </div>
+
+
         <figure class="add">
-            <a href="" id="add-mdl" class="addmdl" >+</a>
+            <a href="" id="add-mdl" class="addmdl">+</a>
             <p>add learning model</p>
         </figure>
     </section>
 </div>
 
+<!-- stats -->
+
 <div id="modelStats" class="add-visibility">
-    <h3>total time today : <span><%= Math.trunc(totalTimeToday/60) %> hr <%= Math.round((totalTimeToday%60)*100)/100  %> min </span></h3>
+    <h3>total time today : <span><%= Math.trunc(totalTimeToday/60) %> hr <%= Math.round((totalTimeToday%60)*100)/100  %>
+            min </span></h3>
     <ul>
         <% modelTimeT.forEach(e => { %>
 
-            <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr <%= Math.round((e.time%60)*100)/100  %> min</span></li>
+        <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr
+                <%= Math.round((e.time%60)*100)/100  %> min</span></li>
 
-       <% }); %>
+        <% }); %>
     </ul>
-    <h3>total time : <span><%= Math.trunc(totalTime/60) %> hr <%= Math.round((totalTime%60)*100)/100  %> min </span></h3>
+    <h3>total time : <span><%= Math.trunc(totalTime/60) %> hr <%= Math.round((totalTime%60)*100)/100  %> min </span>
+    </h3>
     <ul>
         <% modelTime.forEach(e => { %>
 
-            <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr <%= Math.round((e.time%60)*100)/100  %> min</span></li>
+        <li><%= e.name %> <strong>:</strong> <span><%= Math.trunc(e.time/60) %> hr
+                <%= Math.round((e.time%60)*100)/100  %> min</span></li>
 
-       <% }); %>
+        <% }); %>
     </ul>
 </div>
 
 <button id="mdl-stats" class="">stats</a></button>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+
+
+const ctx = document.getElementById('myChart').getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <%- JSON.stringify(dayNameGraphArray) %>,             
+        datasets: [{
+            label: '# time in hrs',
+            data: [<%- dayGraphArray %>],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.05)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgb(59, 25, 43)',
+                'rgb(50, 20, 25)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+}); 
+
+</script>
