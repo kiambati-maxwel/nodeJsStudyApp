@@ -1,5 +1,10 @@
-// DOM
-// const subModuleName = require('./lender_dashboard');
+
+const testLc  = e =>{
+    let testItem;
+    let t = new localStorage.setItem('testItem', e);
+}
+
+ // const subModuleName = require('./lender_dashboard');
 const timeDisplay = document.querySelector('#time-display');
 const playPauseCheckbox = document.querySelector('#playPauseCheckbox');
 const resetbtn = document.querySelector('#resetbtn');
@@ -19,8 +24,10 @@ let displayHours = 0;
 // var holds intervals
 let interval = null;
 let status = 'stopped';
+let localStorage = null;
 
 // stop watch logic
+
 
 function stopWatch(){
     seconds++;
@@ -68,7 +75,7 @@ function totalTimeSpent(){
     let totalTime = hours*60+minutes+seconds/60;
     console.log(totalTime);
     if(subModuleName === null){
-        prompt('select submodule');
+        alert('select submodule');
     }else{
         const send = {
             name: subModuleName,
@@ -84,6 +91,8 @@ function totalTimeSpent(){
     }
    
     reset();
+    // localStorage.setItem('send', null);
+    // localStorage.setItem('time', null);
 };
 
 
@@ -101,6 +110,12 @@ function startStop(){
         // start stop watch interval
         interval = window.setInterval(stopWatch, 1000.7);
         status = 'started'
+        // localStorage = window.setInterval(lcTime, 1000 );
+        // localStorage.setItem('send',  {
+        //     name: subModuleName,
+        //     mainModelName: moduleLender.innerText,
+        //     time: 'default'
+        // });
 
     }else{
         window.clearInterval(interval);
@@ -137,3 +152,21 @@ resetbtn.addEventListener('click', () => {
     reset();
 });
 
+function lcTime(){
+    let tTime =  hours*60+minutes+seconds/60;
+    localStorage.setItem('time', tTime)
+}
+
+async function  checkLcTimeSave (){
+
+    if(localStorage.getItem('send') !== null){
+        let time = localStorage.getItem('time');
+        let sendt = localStorage.getItem('send');
+        sendt.time = time;
+       await saveTime(sendt).then(()=>{
+           console.log('saved');
+       });
+       localStorage.setItem('send', null);
+       localStorage.setItem('time', null);
+    } 
+} 

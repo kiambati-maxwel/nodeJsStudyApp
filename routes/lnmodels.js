@@ -57,7 +57,7 @@ router.post('/addmdl', async (req, res, next) => {
   await  newModel.save()
       .then(() => {
         res.status(201);  
-        res.redirect('/dashboard');
+        res.redirect('/timebox/sts');
       })
       .catch(err => {
         console.log(err);

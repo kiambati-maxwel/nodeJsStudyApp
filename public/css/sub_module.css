@@ -30,7 +30,7 @@
     text-align: center;
 }
 /* sub-stats-sec */
-.stats-sec .sub-stats-sec-sec{
+.stats-sec .sub-stats-sec{
     border: none;
 }
 /* submodule */
@@ -83,6 +83,7 @@
 }
 
 
+
 /* footer */
 .footer{
     color: white;
@@ -93,10 +94,24 @@
 
 #savetimebtn, #resetbtn{
     position: absolute;
-    top: 50%;
+    top: 48%;
+    border: none;
+    font-size: 14px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #3B192B;
+    color: white;
+    cursor: pointer;
 }
+#savetimebtn:hover, #resetbtn:hover{
+    background-color: rgb(133, 61, 97);
+}
+
 #savetimebtn{
     left: 35%;
+    height: 42px;
+    width: 42px;
 }
 #resetbtn{
     right: 22%;
