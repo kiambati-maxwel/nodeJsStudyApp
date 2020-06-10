@@ -107,6 +107,7 @@ mdlstats.addEventListener('click', () => {
         document.querySelector('#submodels').prepend(model);
 
         model.addEventListener('click', () => {
+          add_playbtn();
           const modelResize = document.querySelectorAll('.model');
           subModuleName = model.innerText;
           console.log(model.id);
