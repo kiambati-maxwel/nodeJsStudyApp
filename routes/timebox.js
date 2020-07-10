@@ -109,13 +109,13 @@ router.get('/sts', ensureAuthenticated, async (req, res) => {
         tt = null;
       }
 
-      if (dateToday.getDate() === dateN.getDate() && dateToday.getFullYear() === dateN.getFullYear()) {
+      if (dateToday.getDate() === dateN.getDate() && dateToday.getFullYear() === dateN.getFullYear() && dateToday.getMonth() === dateN.getMonth()) {
         totalTimeToday += e.time;
         if (modelTtodayHandler.length < 1 || modelTtodayHandler.includes(e.mainModelName) === false) {
           allTime.filter(allTime => {
             let dateNn = new Date(allTime.date);
             /* filter subtopic name in info get request data */
-            return allTime.mainModelName === e.mainModelName && dateNn.getDate() === dateToday.getDate() && dateNn.getFullYear() === dateToday.getFullYear();
+            return allTime.mainModelName === e.mainModelName && dateNn.getDate() === dateToday.getDate() && dateNn.getFullYear() === dateToday.getFullYear() && dateNn.getMonth() === dateToday.getMonth();
           }).map(sbn => {
             e
             return sbn.time /* map time into an array */

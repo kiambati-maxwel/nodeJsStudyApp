@@ -1,9 +1,6 @@
-const testLc = e => {
-    let testItem;
-    let t = new localStorage.setItem('testItem', e);
-}
+window.addEventListener('load', saveLcTime);
 
-// const subModuleName = require('./lender_dashboard');
+// DOM
 const timeDisplay = document.querySelector('#time-display');
 const playPauseCheckbox = document.querySelector('#playPauseCheckbox');
 const resetbtn = document.querySelector('#resetbtn');
@@ -23,8 +20,8 @@ let displayHours = 0;
 
 // var holds intervals
 let interval = null;
+let localInterval = null;
 let status = 'stopped';
-let localStorage = null;
 
 // stop watch logic
 
@@ -41,8 +38,6 @@ function stopWatch() {
             minutes = 0;
             hours++;
         }
-
-
     }
 
     // seconds/hours/minutes dispaly
@@ -70,31 +65,27 @@ function stopWatch() {
 
 // total time 
 
-function totalTimeSpent() {
-    // let totalTime = (Math.floor(hours*60+minutes+seconds/60));
+async function totalTimeSpent() {
     let totalTime = hours * 60 + minutes + seconds / 60;
     console.log(totalTime);
     if (subModuleName === null) {
         alert('select submodule');
     } else {
-
-        
         const send = {
             name: subModuleName,
             mainModelName: moduleLender.innerText,
             time: totalTime
         }
         console.log(send);
-        saveTime(send).then(() => {
+        await saveTime(send).then(() => {
             console.log(totalTime);
             console.log('saved');
         });
-
     }
 
     reset();
-    // localStorage.setItem('send', null);
-    // localStorage.setItem('time', null);
+    localStorage.clear();
+
 };
 
 
@@ -102,6 +93,7 @@ function totalTimeSpent() {
 
 async function saveTime(tTime) {
     await $.post('http://0.0.0.0:4000/timebox/saveme', tTime);
+    console.log('time sent');
 };
 
 // --------------- start pose ----
@@ -111,17 +103,12 @@ function startStop() {
     if (status === 'stopped') {
         // start stop watch interval
         interval = window.setInterval(stopWatch, 1000.7);
+        localInterval = window.setInterval(updateLoacalStorage, 5000);
         status = 'started'
-        // localStorage = window.setInterval(lcTime, 1000 );
-        // localStorage.setItem('send',  {
-        //     name: subModuleName,
-        //     mainModelName: moduleLender.innerText,
-        //     time: 'default'
-        // });
-
     } else {
         window.clearInterval(interval);
         status = 'stopped';
+        window.clearInterval(updateLoacalStorage);
     };
 };
 
@@ -130,13 +117,14 @@ function startStop() {
 
 playPauseCheckbox.addEventListener('click', () => {
     startStop();
-
 });
 
 
 // reset btn ...
 function reset() {
     window.clearInterval(interval);
+    window.clearInterval(localInterval);
+    localStorage.clear();
     seconds = 0;
     minutes = 0;
     hours = 0;
@@ -147,39 +135,37 @@ function reset() {
         status = 'stopped';
     }
 
-
 }
 
 resetbtn.addEventListener('click', () => {
     reset();
 });
 
-function lcTime() {
-    let tTime = hours * 60 + minutes + seconds / 60;
-    localStorage.setItem('time', tTime)
-}
-
-async function checkLcTimeSave() {
-
-    if (localStorage.getItem('send') !== null) {
-        let time = localStorage.getItem('time');
-        let sendt = localStorage.getItem('send');
-        sendt.time = time;
-        await saveTime(sendt).then(() => {
-            console.log('saved');
-        });
-        localStorage.setItem('send', null);
-        localStorage.setItem('time', null);
-    }
-}
-
-// --- btn click brfore fix
+// --- contral sub model entry 
 
 function add_playbtn() {
-    console.log('yeseses')
     if (playpause.className === 'play-pause add-visibility') {
         playpause.classList.remove('add-visibility');
     } else {
         playpause.classList.add('add-visibility');
     };
+}
+
+async function updateLoacalStorage() {
+    let totalTime = hours * 60 + minutes + seconds / 60;
+    let send = {
+        name: subModuleName,
+        mainModelName: moduleLender.innerText,
+        time: totalTime
+    }
+    localStorage.timeInit = JSON.stringify(send);
+}
+
+async function saveLcTime() {
+    if (localStorage.timeInit) {
+        const send = JSON.parse(localStorage.timeInit);
+        saveTime(send);
+        console.log(send);
+        localStorage.clear();
+    }
 }
